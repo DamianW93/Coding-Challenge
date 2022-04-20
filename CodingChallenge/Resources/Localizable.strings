@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  CodingChallenge
+
+  Created by Damian Włodarczyk on 20/04/2022.
+  
+*/
+
+"general.ok" = "OK";
+
+"error.defaultTitle" = "Oops, something went wrong...";
+"error.authorization" = "You are unauthorized to acces this data.";
+"error.noInternet" = "Internet not available. Please connect and retry.";
+"error.serverProblem" = "Oops! Seems like there was a problem with the server.\nError code: %d";
+"error.unknown" = "Oops! Something went wrong.";
