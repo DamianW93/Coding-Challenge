@@ -13,8 +13,8 @@ protocol ShiftModuleFactoryProtocol {
 
 final class ShiftModuleFactory: DIFactory, ShiftModuleFactoryProtocol {
     func buildShiftsList() -> UIViewController {
-        // TODO: Add ViewModel
-        let viewController = ShiftsView().asViewController()
+        let viewModel = ShiftsViewModel(shiftRepository: resolver.resolve(ShiftRepositoryProtocol.self)!)
+        let viewController = ShiftsView(viewModel: viewModel).asViewController()
         
         return viewController
     }

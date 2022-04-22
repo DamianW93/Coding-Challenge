@@ -8,3 +8,5 @@
 import Rswift
 
 let L10n = R.string.localizable.self
+let Colors = R.color.self
+let Images = R.image.self

@@ -15,7 +15,7 @@ final class NetworkServicesAssembly: Assembly {
             .inObjectScope(.container)
         
         container
-            .autoregister(JSONDecoder.self, initializer: JSONDecoder.init)
+            .register(JSONDecoder.self) { _ in JSONCoder.decoder }
             .inObjectScope(.container)
         
         container

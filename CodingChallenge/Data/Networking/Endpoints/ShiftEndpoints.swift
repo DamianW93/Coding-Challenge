@@ -8,17 +8,17 @@
 import Foundation
 
 enum ShiftEndpoints: Endpoint {
-    case shifts
+    case shifts(GetShiftsRequestModel)
     
     var path: String {
         switch self {
-        case .shifts: return "shifts"
+        case .shifts: return "available_shifts"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .shifts: return .get()
+        case .shifts(let requestModel): return .get(requestModel.queryItems)
         }
     }
 }

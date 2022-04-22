@@ -1,6 +1,7 @@
 {
-  "colors" : [
+  "images" : [
     {
+      "filename" : "errorIcon.pdf",
       "idiom" : "universal"
     }
   ],

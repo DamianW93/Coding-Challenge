@@ -8,6 +8,8 @@
 
 "general.ok" = "OK";
 
+"shiftsList.Title" = "Shifts";
+
 "error.defaultTitle" = "Oops, something went wrong...";
 "error.authorization" = "You are unauthorized to acces this data.";
 "error.noInternet" = "Internet not available. Please connect and retry.";

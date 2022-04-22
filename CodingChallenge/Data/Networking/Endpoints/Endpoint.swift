@@ -41,6 +41,10 @@ extension Endpoint {
         case .get(let queryItems):
             var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
             urlComponents?.queryItems = queryItems
+
+            if let url = urlComponents?.url {
+                urlRequest.url = url
+            }
         case .post(let data), .put(let data):
             urlRequest.httpBody = data
         default: break
