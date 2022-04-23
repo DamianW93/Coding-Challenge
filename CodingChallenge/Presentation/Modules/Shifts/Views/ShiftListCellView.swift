@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ShiftListCellView: View {
-    let shiftModel: ShiftResponseModel
+    let shiftModel: ShiftModel
     
     var body: some View {
         contentView
@@ -17,26 +17,35 @@ struct ShiftListCellView: View {
     private var contentView: some View {
         ZStack(alignment: .topLeading) {
             Color.white
-            VStack(alignment: .leading, spacing: 12.0) {
+            VStack(alignment: .leading, spacing: Dimens.m) {
                 header
                 facility
-            }.padding(.all, 16.0)
+            }.padding(.all, Dimens.l)
         }
-        .cornerRadius(16.0)
-        .shadow(color: .gray.opacity(0.3), radius: 6, x: 0, y: 0)
+        .cornerRadius(Dimens.l)
+        .shadow(
+            color: .gray.opacity(Dimens.shadowOpacity),
+            radius: 6,
+            x: 0,
+            y: 0
+        )
     }
     
     private var header: some View {
-        HStack(spacing: 8.0) {
-            Text("\(shiftModel.normalizedStartDateTime.format(.time)) - \(shiftModel.normalizedEndDateTime.format(.time))")
+        HStack(spacing: Dimens.s) {
+            Text("\(shiftModel.startDateTime.format(.time)) - \(shiftModel.endDateTime.format(.time))")
                 .font(.caption)
             Spacer()
             if shiftModel.premiumRate {
-                Image(systemName: "star.fill")
+                SystemImage.starIcon
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .foregroundColor(.yellow)
-                    .frame(width: 15, height: 15, alignment: .center)
+                    .frame(
+                        width: Dimens.l,
+                        height: Dimens.l,
+                        alignment: .center
+                    )
             }
             Text(shiftModel.localizedSpecialty.abbreviation)
                 .font(.caption)
@@ -44,7 +53,7 @@ struct ShiftListCellView: View {
     }
     
     private var facility: some View {
-        VStack(alignment: .leading, spacing: 12.0) {
+        VStack(alignment: .leading, spacing: Dimens.m) {
             Text(shiftModel.facilityType.name)
                 .font(.body)
                 .fontWeight(.bold)
@@ -53,17 +62,19 @@ struct ShiftListCellView: View {
                     .font(.caption2)
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
-                    .padding(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
+                    .padding(.horizontal, Dimens.s)
+                    .padding(.vertical, Dimens.xs)
                     .background(
                         Capsule()
                             .fill(Color(hex: shiftModel.skill.color))
                     )
                 Spacer()
                 if shiftModel.covid {
-                    Images.covidVaccineIcon.image
+                    SystemImage.covidIcon
                         .resizable()
-                        .frame(width: 20, height: 20)
+                        .frame(width: Dimens.xl, height: Dimens.xl)
                         .aspectRatio(contentMode: .fit)
+                        .foregroundColor(Colors.primary.color)
                 }
             }
         }
@@ -72,10 +83,10 @@ struct ShiftListCellView: View {
 
 struct TransactionCellView_Previews: PreviewProvider {
     static var previews: some View {
-        ShiftListCellView(shiftModel: ShiftResponseModel(
+        ShiftListCellView(shiftModel: ShiftModel(
             shiftId: 0,
-            normalizedStartDateTime: Date.now,
-            normalizedEndDateTime: (try? Date.from(
+            startDateTime: Date.now,
+            endDateTime: (try? Date.from(
                 string: "2022-04-21",
                 with: Date.Format.yearMonthDay
             )) ?? Date.now,
@@ -83,22 +94,22 @@ struct TransactionCellView_Previews: PreviewProvider {
             covid: true,
             shiftKind: .day,
             withinDistance: 2.0,
-            facilityType: ShiftFacilityTypeResponseModel(
+            facilityType: ShiftFacilityTypeModel(
                 id: 0,
                 name: "Facility Name",
                 color: "#433434"
             ),
-            skill: ShiftSkillResponseModel(
+            skill: ShiftSkillModel(
                 id: 0,
                 name: "Skill name",
                 color: "#FFDD4E"),
-            localizedSpecialty: ShiftLocalizedSpecialtyResponseModel(
+            localizedSpecialty: ShiftLocalizedSpecialtyModel(
                 id: 0,
                 specialtyId: 0,
                 stateId: 0,
                 name: "Speciality Name",
                 abbreviation: "SN",
-                specialty: ShiftSpecialtyResponseModel(
+                specialty: ShiftSpecialtyModel(
                     id: 0,
                     name: "Specialty Name",
                     color: "#EEFFEE",

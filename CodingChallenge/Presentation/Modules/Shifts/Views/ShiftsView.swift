@@ -26,19 +26,23 @@ struct ShiftsView<ViewModel: ShiftsViewModelProtocol>: View {
     
     private func contentView() -> some View {
         List {
-            ForEach(viewModel.shifts) { shift in
-                ShiftListCellView(shiftModel: shift)
-                    .listRowSeparator(.hidden)
-                    .onTapGesture {
-                        viewModel.onShiftSelected(shift)
+            ForEach(viewModel.dailyShifts) { dailyShift in
+                Section(dailyShift.date.format(.descriptiveDate).capitalized) {
+                    ForEach(dailyShift.shifts) { shift in
+                        ShiftListCellView(shiftModel: shift)
+                            .listRowSeparator(.hidden)
+                            .onTapGesture {
+                                viewModel.onShiftSelected(shift)
+                            }
                     }
+                }
             }
             if viewModel.state.showPaginingIndicator {
                 LoadingView()
                     .onAppear { viewModel.onScrollDown() }
             }
         }
-        .animation(.default, value: viewModel.shifts)
+        .animation(.default, value: viewModel.dailyShifts)
         .listStyle(.plain)
         .refreshable { await viewModel.onPullToRefresh() }
         .overlay(alignment: .center) {

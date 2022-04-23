@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ShiftResponseModel: Decodable, Identifiable, Equatable {
+struct ShiftResponseModel: Decodable {
     let shiftId: Int
     let normalizedStartDateTime: Date
     let normalizedEndDateTime: Date
@@ -18,13 +18,4 @@ struct ShiftResponseModel: Decodable, Identifiable, Equatable {
     let facilityType: ShiftFacilityTypeResponseModel
     let skill: ShiftSkillResponseModel
     let localizedSpecialty: ShiftLocalizedSpecialtyResponseModel
-    
-    // TODO: Move to domain model
-    var id: Int {
-        shiftId
-    }
-    
-    static func == (lhs: ShiftResponseModel, rhs: ShiftResponseModel) -> Bool {
-        lhs.id == rhs.id
-    }
 }

@@ -13,22 +13,22 @@ struct ShiftDetails<ViewModel: ShiftDetailsViewModelProtocol>: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(alignment: .leading, spacing: 16.0) {
+                VStack(alignment: .leading, spacing: Dimens.l) {
                     basicInfoStackView
                     Spacer()
                 }
-                .padding(.vertical, 16.0)
+                .padding(.vertical, Dimens.l)
             }
             .navigationTitle(viewModel.shift.facilityType.name)
         }
     }
     
     var basicInfoStackView: some View {
-        VStack(spacing: 14.0) {
+        VStack(spacing: Dimens.m) {
             InformationRowView(
-                icon: Image(systemName: "calendar"),
-                title: viewModel.shift.normalizedStartDateTime.format(.descriptiveDate).capitalized,
-                description: "\(viewModel.shift.normalizedStartDateTime.format(.time)) - \(viewModel.shift.normalizedEndDateTime.format(.time))"
+                icon: SystemImage.calendarIcon,
+                title: viewModel.shift.startDateTime.format(.descriptiveDate).capitalized,
+                description: "\(viewModel.shift.startDateTime.format(.time)) - \(viewModel.shift.endDateTime.format(.time))"
             )
             InformationRowView(
                 icon: shiftImage,
@@ -36,41 +36,41 @@ struct ShiftDetails<ViewModel: ShiftDetailsViewModelProtocol>: View {
                 description: nil
             )
             InformationRowView(
-                icon: Image(systemName: "book.fill"),
+                icon: SystemImage.bookIcon,
                 title: viewModel.shift.skill.name,
                 description: nil
             )
             InformationRowView(
-                icon: Image(systemName: "graduationcap.fill"),
+                icon: SystemImage.specialtyIcon,
                 title: viewModel.shift.localizedSpecialty.specialty.name,
                 description: nil
             )
             if viewModel.shift.premiumRate {
                 InformationRowView(
-                    icon: Image(systemName: "star.fill"),
+                    icon: SystemImage.starIcon,
                     title: L10n.shiftDetailsPremiumRate(),
                     description: nil
                 )
             }
             if viewModel.shift.covid {
                 InformationRowView(
-                    icon: Images.covidVaccineIcon.image,
+                    icon: SystemImage.covidIcon,
                     title: L10n.shiftDetailsCovidVaccinationNeeded(),
                     description: nil
                 )
             }
         }
-        .padding(.horizontal, 16.0)
+        .padding(.horizontal, Dimens.l)
     }
     
     var shiftImage: Image {
         switch viewModel.shift.shiftKind {
         case .day:
-            return Image(systemName: "sun.max.fill")
+            return SystemImage.dayIcon
         case .evening:
-            return Image(systemName: "sun.and.horizon.fill")
+            return SystemImage.eveningIcon
         case .night:
-            return Image(systemName: "moon.fill")
+            return SystemImage.nightIcon
         }
     }
 }

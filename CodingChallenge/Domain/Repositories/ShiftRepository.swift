@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ShiftRepositoryProtocol {
-    func fetchShifts(for date: Date) async throws -> [ShiftResponseModel]
+    func fetchShifts(for date: Date) async throws -> DailyShiftsModel
 }
 
 final class ShiftRepository: ShiftRepositoryProtocol {
@@ -18,13 +18,16 @@ final class ShiftRepository: ShiftRepositoryProtocol {
         self.networkService = networkService
     }
     
-    // TODO: Change return type to domain model
-    func fetchShifts(for date: Date) async throws -> [ShiftResponseModel] {
-        let shiftsResponse = try await networkService.request(
+    func fetchShifts(for date: Date) async throws -> DailyShiftsModel {
+        let dailyShiftsResponse = try await networkService.request(
             type: ShiftsResponseModel.self,
             endpoint: ShiftEndpoints.shifts(.init(start: date, end: date))
         )
         
-        return shiftsResponse.data.first?.shifts ?? []
+        let dailyShifts = DailyShiftsModel.from(
+            response: dailyShiftsResponse.data.first ?? .init(date: date, shifts: [])
+        )
+        
+        return dailyShifts
     }
 }

@@ -12,7 +12,7 @@ final class SHiftModuleFactoryMock: ShiftModuleFactoryProtocol {
         UIViewController()
     }
     
-    func buildShiftDetails(shift: ShiftResponseModel) -> ShiftDetails<ShiftDetailsViewModel> {
+    func buildShiftDetails(shift: ShiftModel) -> ShiftDetails<ShiftDetailsViewModel> {
         fatalError("Not implemented")
     }
 }

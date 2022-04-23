@@ -10,7 +10,7 @@ import SwiftUI
 
 protocol ShiftModuleFactoryProtocol {
     func buildShiftsList() -> UIViewController
-    func buildShiftDetails(shift: ShiftResponseModel) -> ShiftDetails<ShiftDetailsViewModel>
+    func buildShiftDetails(shift: ShiftModel) -> ShiftDetails<ShiftDetailsViewModel>
 }
 
 final class ShiftModuleFactory: DIFactory, ShiftModuleFactoryProtocol {
@@ -21,7 +21,7 @@ final class ShiftModuleFactory: DIFactory, ShiftModuleFactoryProtocol {
         return viewController
     }
     
-    func buildShiftDetails(shift: ShiftResponseModel) -> ShiftDetails<ShiftDetailsViewModel> {
+    func buildShiftDetails(shift: ShiftModel) -> ShiftDetails<ShiftDetailsViewModel> {
         let viewModel = ShiftDetailsViewModel(shift: shift)
         let view = ShiftDetails(viewModel: viewModel)
         

@@ -9,19 +9,19 @@ import Foundation
 
 protocol ShiftsViewModelProtocol: ObservableObject {
     var state: ShiftsViewState { get }
-    var shifts: [ShiftResponseModel] { get }
-    var selectedShift: ShiftResponseModel? { get set }
+    var dailyShifts: [DailyShiftsModel] { get }
+    var selectedShift: ShiftModel? { get set }
     
     func onAppear() async
     func onScrollDown()
     func onPullToRefresh() async
-    func onShiftSelected(_ shift: ShiftResponseModel)
+    func onShiftSelected(_ shift: ShiftModel)
 }
 
 final class ShiftsViewModel {
-    @Published private(set) var shifts: [ShiftResponseModel] = []
+    @Published private(set) var dailyShifts: [DailyShiftsModel] = []
     @Published private(set) var state: ShiftsViewState = .loaded
-    @Published var selectedShift: ShiftResponseModel?
+    @Published var selectedShift: ShiftModel?
     
     private let shiftRepository: ShiftRepositoryProtocol
     
@@ -34,16 +34,16 @@ final class ShiftsViewModel {
     @MainActor
     private func fetchShifts() async {
         do {
-            let shifts = try await shiftRepository.fetchShifts(for: fetchShiftsDate)
+            let dailyShifts = try await shiftRepository.fetchShifts(for: fetchShiftsDate)
             fetchShiftsDate = fetchShiftsDate.add(days: 1)
             
             if state.initialLoading {
-                self.shifts = shifts
+                self.dailyShifts = [dailyShifts]
             } else {
-                self.shifts.append(contentsOf: shifts)
+                self.dailyShifts.append(dailyShifts)
             }
             
-            self.state = shifts.isEmpty ? .loaded : .pagining
+            self.state = dailyShifts.shifts.isEmpty ? .loaded : .pagining
         } catch {
             self.state = .error(error)
         }
@@ -76,7 +76,7 @@ extension ShiftsViewModel: ShiftsViewModelProtocol {
         await fetchShifts()
     }
     
-    func onShiftSelected(_ shift: ShiftResponseModel) {
+    func onShiftSelected(_ shift: ShiftModel) {
         selectedShift = shift
     }
 }

@@ -43,6 +43,14 @@
 		526E03E12812FDD7005FA78C /* ColorResource+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E03E02812FDD7005FA78C /* ColorResource+Extension.swift */; };
 		526E03E528143923005FA78C /* ShiftModuleFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E03E428143923005FA78C /* ShiftModuleFactoryMock.swift */; };
 		526E03E728144ACB005FA78C /* ShiftType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E03E628144ACB005FA78C /* ShiftType.swift */; };
+		526E03E9281456D0005FA78C /* DailyShiftsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E03E8281456D0005FA78C /* DailyShiftsModel.swift */; };
+		526E03EB281458FB005FA78C /* ShiftLocalizedSpecialtyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E03EA281458FB005FA78C /* ShiftLocalizedSpecialtyModel.swift */; };
+		526E03ED28145925005FA78C /* ShiftSpecialtyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E03EC28145925005FA78C /* ShiftSpecialtyModel.swift */; };
+		526E03EF28145A31005FA78C /* ShiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E03EE28145A31005FA78C /* ShiftModel.swift */; };
+		526E03F128145B16005FA78C /* ShiftFacilityTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E03F028145B16005FA78C /* ShiftFacilityTypeModel.swift */; };
+		526E03F328145B97005FA78C /* ShiftSkillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E03F228145B97005FA78C /* ShiftSkillModel.swift */; };
+		526E03F628145FE3005FA78C /* SystemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E03F528145FE3005FA78C /* SystemImage.swift */; };
+		526E03F82814617C005FA78C /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E03F72814617C005FA78C /* Dimens.swift */; };
 		52A3F765280DD3980012277E /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3F764280DD3980012277E /* NetworkConstants.swift */; };
 		52A3F769280DD57E0012277E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3F768280DD57E0012277E /* NetworkService.swift */; };
 		52A3F76E280DD6350012277E /* ShiftEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3F76D280DD6350012277E /* ShiftEndpoints.swift */; };
@@ -138,6 +146,14 @@
 		526E03E02812FDD7005FA78C /* ColorResource+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColorResource+Extension.swift"; sourceTree = "<group>"; };
 		526E03E428143923005FA78C /* ShiftModuleFactoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftModuleFactoryMock.swift; sourceTree = "<group>"; };
 		526E03E628144ACB005FA78C /* ShiftType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftType.swift; sourceTree = "<group>"; };
+		526E03E8281456D0005FA78C /* DailyShiftsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyShiftsModel.swift; sourceTree = "<group>"; };
+		526E03EA281458FB005FA78C /* ShiftLocalizedSpecialtyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftLocalizedSpecialtyModel.swift; sourceTree = "<group>"; };
+		526E03EC28145925005FA78C /* ShiftSpecialtyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftSpecialtyModel.swift; sourceTree = "<group>"; };
+		526E03EE28145A31005FA78C /* ShiftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftModel.swift; sourceTree = "<group>"; };
+		526E03F028145B16005FA78C /* ShiftFacilityTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftFacilityTypeModel.swift; sourceTree = "<group>"; };
+		526E03F228145B97005FA78C /* ShiftSkillModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftSkillModel.swift; sourceTree = "<group>"; };
+		526E03F528145FE3005FA78C /* SystemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemImage.swift; sourceTree = "<group>"; };
+		526E03F72814617C005FA78C /* Dimens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
 		52A3F764280DD3980012277E /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		52A3F768280DD57E0012277E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		52A3F76D280DD6350012277E /* ShiftEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftEndpoints.swift; sourceTree = "<group>"; };
@@ -291,9 +307,10 @@
 			isa = PBXGroup;
 			children = (
 				526E03A128115213005FA78C /* Common */,
-				526E039E28114F8E005FA78C /* PreviewMocks */,
-				52A3F7B828109A130012277E /* Modules */,
 				52A3F7B22810994B0012277E /* Helpers */,
+				52A3F7B828109A130012277E /* Modules */,
+				526E039E28114F8E005FA78C /* PreviewMocks */,
+				526E03F428145F8C005FA78C /* Utils */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -373,6 +390,12 @@
 		526E03C928117B53005FA78C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				526E03E8281456D0005FA78C /* DailyShiftsModel.swift */,
+				526E03F028145B16005FA78C /* ShiftFacilityTypeModel.swift */,
+				526E03EA281458FB005FA78C /* ShiftLocalizedSpecialtyModel.swift */,
+				526E03EE28145A31005FA78C /* ShiftModel.swift */,
+				526E03F228145B97005FA78C /* ShiftSkillModel.swift */,
+				526E03EC28145925005FA78C /* ShiftSpecialtyModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -402,6 +425,15 @@
 				526E03DA2812F507005FA78C /* ShiftDetailsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		526E03F428145F8C005FA78C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				526E03F528145FE3005FA78C /* SystemImage.swift */,
+				526E03F72814617C005FA78C /* Dimens.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		52A3F766280DD4540012277E /* Models */ = {
@@ -903,6 +935,9 @@
 				52A3F7B7281099C30012277E /* View+Extension.swift in Sources */,
 				52A3F7792810233A0012277E /* Error+Extension.swift in Sources */,
 				52A3F7B1281098B10012277E /* ShiftModuleFactory.swift in Sources */,
+				526E03F628145FE3005FA78C /* SystemImage.swift in Sources */,
+				526E03E9281456D0005FA78C /* DailyShiftsModel.swift in Sources */,
+				526E03F128145B16005FA78C /* ShiftFacilityTypeModel.swift in Sources */,
 				526E03BA28116E26005FA78C /* CustomDateDecoder.swift in Sources */,
 				52A3F7A4281094E60012277E /* RepositoriesAssembly.swift in Sources */,
 				526E03A928116566005FA78C /* DailyShiftsResponseModel.swift in Sources */,
@@ -911,6 +946,7 @@
 				52A3F77E281023ED0012277E /* FailedResponse.swift in Sources */,
 				52A3F79D28105D7D0012277E /* Assembler.swift in Sources */,
 				526E03AB2811659D005FA78C /* ShiftResponseModel.swift in Sources */,
+				526E03EB281458FB005FA78C /* ShiftLocalizedSpecialtyModel.swift in Sources */,
 				52A3F765280DD3980012277E /* NetworkConstants.swift in Sources */,
 				526E03C128117026005FA78C /* JSONCoder.swift in Sources */,
 				52A3F7BF28109B200012277E /* AppModuleAssembly.swift in Sources */,
@@ -930,8 +966,12 @@
 				526E03C4281170E5005FA78C /* ParametersConvertible.swift in Sources */,
 				52A3F7C22810A6470012277E /* ShiftsViewModel.swift in Sources */,
 				52A3F7A8281095F70012277E /* SceneDelegate.swift in Sources */,
+				526E03ED28145925005FA78C /* ShiftSpecialtyModel.swift in Sources */,
+				526E03F328145B97005FA78C /* ShiftSkillModel.swift in Sources */,
 				526E03A32811521C005FA78C /* LoadingView.swift in Sources */,
+				526E03F82814617C005FA78C /* Dimens.swift in Sources */,
 				52A3F774280DD7D90012277E /* HTTPMethod.swift in Sources */,
+				526E03EF28145A31005FA78C /* ShiftModel.swift in Sources */,
 				526E03E728144ACB005FA78C /* ShiftType.swift in Sources */,
 				2349FD89261E4F9900A1FEAA /* ShiftsView.swift in Sources */,
 				52A3F7842810273D0012277E /* HTTPStatusCodes.swift in Sources */,

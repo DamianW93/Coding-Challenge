@@ -8,13 +8,13 @@
 import Foundation
 
 protocol ShiftDetailsViewModelProtocol: ObservableObject {
-    var shift: ShiftResponseModel { get }
+    var shift: ShiftModel { get }
 }
 
 final class ShiftDetailsViewModel: ShiftDetailsViewModelProtocol {
-    let shift: ShiftResponseModel
+    let shift: ShiftModel
     
-    init(shift: ShiftResponseModel) {
+    init(shift: ShiftModel) {
         self.shift = shift
     }
 }

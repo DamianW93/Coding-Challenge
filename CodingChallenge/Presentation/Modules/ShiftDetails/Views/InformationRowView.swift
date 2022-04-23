@@ -13,7 +13,7 @@ struct InformationRowView: View {
     let description: String?
     
     var body: some View {
-        HStack(spacing: 16.0) {
+        HStack(spacing: Dimens.l) {
             iconContainer
             texts
             Spacer()
@@ -23,18 +23,22 @@ struct InformationRowView: View {
     var iconContainer: some View {
         ZStack {
             Circle()
-                .fill(Colors.primary.color.opacity(0.2))
+                .fill(Colors.primary.color.opacity(Dimens.defaultColorOpacity))
             icon
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(maxWidth: 16, maxHeight: 16, alignment: .center)
+                .frame(
+                    maxWidth: Dimens.l,
+                    maxHeight: Dimens.l,
+                    alignment: .center
+                )
                 .foregroundColor(Colors.primary.color)
         }
         .frame(width: 40, height: 40, alignment: .center)
     }
     
     var texts: some View {
-        VStack(alignment: .leading, spacing: 2) {
+        VStack(alignment: .leading, spacing: Dimens.xxs) {
             Text(title)
                 .font(.body)
                 .fontWeight(.semibold)
@@ -49,7 +53,7 @@ struct InformationRowView: View {
 struct InformationRowView_Previews: PreviewProvider {
     static var previews: some View {
         InformationRowView(
-            icon: Image(systemName: "calendar"),
+            icon: SystemImage.calendarIcon,
             title: "Test title",
             description: "Test description"
         )
