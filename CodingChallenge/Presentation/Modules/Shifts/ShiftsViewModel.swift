@@ -13,7 +13,7 @@ protocol ShiftsViewModelProtocol: ObservableObject {
     var selectedShift: ShiftModel? { get set }
     
     func onAppear() async
-    func onScrollDown()
+    func onScrollDown() async
     func onPullToRefresh() async
     func onShiftSelected(_ shift: ShiftModel)
 }
@@ -35,7 +35,7 @@ final class ShiftsViewModel {
     private func fetchShifts() async {
         do {
             let dailyShifts = try await shiftRepository.fetchShifts(for: fetchShiftsDate)
-            fetchShiftsDate = fetchShiftsDate.add(days: 1)
+            fetchShiftsDate = dailyShifts.date.add(days: 1)
             
             if state.initialLoading {
                 self.dailyShifts = [dailyShifts]
@@ -45,7 +45,7 @@ final class ShiftsViewModel {
             
             self.state = dailyShifts.shifts.isEmpty ? .loaded : .pagining
         } catch {
-            self.state = .error(error)
+            self.state = .error(error.localizedDescription)
         }
     }
 }
@@ -60,18 +60,19 @@ extension ShiftsViewModel: ShiftsViewModelProtocol {
         await fetchShifts()
     }
     
-    func onScrollDown() {
+    func onScrollDown() async {
         guard !state.isLoadingData else { return }
         
         state = .loadingMore
         
-        Task { await fetchShifts() }
+        await fetchShifts()
     }
     
     func onPullToRefresh() async {
         guard !state.isLoadingData else { return }
         
         state = .refreshing
+        fetchShiftsDate = Date.now
         
         await fetchShifts()
     }

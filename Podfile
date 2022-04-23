@@ -2,23 +2,25 @@ platform :ios, '15.0'
 
 inhibit_all_warnings!
 
-target 'CodingChallenge' do
-  use_frameworks!
-
+def libraries
   pod 'SwiftLint', '~> 0.47'
   pod 'R.swift', '~> 6.1.0'
   pod 'Swinject', '~> 2.7.1'
   pod 'SwinjectAutoregistration', '~> 2.8.1'
+end
 
+target 'CodingChallenge' do
+  use_frameworks!
+  
+  libraries
+  
   target 'CodingChallengeTests' do
     inherit! :search_paths
-    # Pods for testing
   end
+end
 
-  target 'CodingChallengeUITests' do
-    # Pods for testing
-  end
-
+target 'CodingChallengeUITests' do
+  libraries
 end
 
 post_install do |installer|

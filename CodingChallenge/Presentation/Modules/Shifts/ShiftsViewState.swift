@@ -11,7 +11,7 @@ enum ShiftsViewState {
     case refreshing
     case pagining
     case loaded
-    case error(Error)
+    case error(String)
 }
 
 extension ShiftsViewState {

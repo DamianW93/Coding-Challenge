@@ -32,7 +32,7 @@ extension Date {
         dayComponent.day = days
         
         let theCalendar = Calendar.current
-        let nextDate = theCalendar.date(byAdding: dayComponent, to: Date())
+        let nextDate = theCalendar.date(byAdding: dayComponent, to: self)
         
         return nextDate ?? self
     }

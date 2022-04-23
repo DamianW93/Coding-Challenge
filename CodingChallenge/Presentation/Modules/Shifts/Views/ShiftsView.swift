@@ -39,7 +39,9 @@ struct ShiftsView<ViewModel: ShiftsViewModelProtocol>: View {
             }
             if viewModel.state.showPaginingIndicator {
                 LoadingView()
-                    .onAppear { viewModel.onScrollDown() }
+                    .onAppear {
+                        Task { await viewModel.onScrollDown() }
+                    }
             }
         }
         .animation(.default, value: viewModel.dailyShifts)
