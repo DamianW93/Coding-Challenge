@@ -51,6 +51,7 @@
 		526E03F328145B97005FA78C /* ShiftSkillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E03F228145B97005FA78C /* ShiftSkillModel.swift */; };
 		526E03F628145FE3005FA78C /* SystemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E03F528145FE3005FA78C /* SystemImage.swift */; };
 		526E03F82814617C005FA78C /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E03F72814617C005FA78C /* Dimens.swift */; };
+		526E03FA28146584005FA78C /* ShiftModelPresentationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E03F928146584005FA78C /* ShiftModelPresentationMock.swift */; };
 		52A3F765280DD3980012277E /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3F764280DD3980012277E /* NetworkConstants.swift */; };
 		52A3F769280DD57E0012277E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3F768280DD57E0012277E /* NetworkService.swift */; };
 		52A3F76E280DD6350012277E /* ShiftEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3F76D280DD6350012277E /* ShiftEndpoints.swift */; };
@@ -154,6 +155,7 @@
 		526E03F228145B97005FA78C /* ShiftSkillModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftSkillModel.swift; sourceTree = "<group>"; };
 		526E03F528145FE3005FA78C /* SystemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemImage.swift; sourceTree = "<group>"; };
 		526E03F72814617C005FA78C /* Dimens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
+		526E03F928146584005FA78C /* ShiftModelPresentationMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftModelPresentationMock.swift; sourceTree = "<group>"; };
 		52A3F764280DD3980012277E /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		52A3F768280DD57E0012277E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		52A3F76D280DD6350012277E /* ShiftEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftEndpoints.swift; sourceTree = "<group>"; };
@@ -330,9 +332,10 @@
 		526E039E28114F8E005FA78C /* PreviewMocks */ = {
 			isa = PBXGroup;
 			children = (
-				526E039F28114FA3005FA78C /* ShiftsViewModelPreviewMock.swift */,
 				526E03DC2812F642005FA78C /* ShiftDetailsViewModelPreviewMock.swift */,
+				526E03F928146584005FA78C /* ShiftModelPresentationMock.swift */,
 				526E03E428143923005FA78C /* ShiftModuleFactoryMock.swift */,
+				526E039F28114FA3005FA78C /* ShiftsViewModelPreviewMock.swift */,
 			);
 			path = PreviewMocks;
 			sourceTree = "<group>";
@@ -340,8 +343,8 @@
 		526E03A128115213005FA78C /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				526E03A22811521C005FA78C /* LoadingView.swift */,
 				526E03D12811FE78005FA78C /* ErrorView.swift */,
+				526E03A22811521C005FA78C /* LoadingView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -430,8 +433,8 @@
 		526E03F428145F8C005FA78C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				526E03F528145FE3005FA78C /* SystemImage.swift */,
 				526E03F72814617C005FA78C /* Dimens.swift */,
+				526E03F528145FE3005FA78C /* SystemImage.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -476,10 +479,10 @@
 			isa = PBXGroup;
 			children = (
 				52A3F7B5281099B40012277E /* SwiftUI */,
-				52A3F7782810233A0012277E /* Error+Extension.swift */,
 				526E03BB28116E67005FA78C /* Date+Extension.swift */,
-				526E03BD28116F99005FA78C /* String+Extension.swift */,
 				526E03C528117146005FA78C /* Encodable+Extension.swift */,
+				52A3F7782810233A0012277E /* Error+Extension.swift */,
+				526E03BD28116F99005FA78C /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -945,6 +948,7 @@
 				52A3F7AA281097650012277E /* WindowController.swift in Sources */,
 				52A3F77E281023ED0012277E /* FailedResponse.swift in Sources */,
 				52A3F79D28105D7D0012277E /* Assembler.swift in Sources */,
+				526E03FA28146584005FA78C /* ShiftModelPresentationMock.swift in Sources */,
 				526E03AB2811659D005FA78C /* ShiftResponseModel.swift in Sources */,
 				526E03EB281458FB005FA78C /* ShiftLocalizedSpecialtyModel.swift in Sources */,
 				52A3F765280DD3980012277E /* NetworkConstants.swift in Sources */,

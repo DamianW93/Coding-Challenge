@@ -5,9 +5,23 @@
 //  Created by Damian Włodarczyk on 21/04/2022.
 //
 
+import Foundation
+
 final class ShiftsViewModelPreviewMock: ShiftsViewModelProtocol {    
     var state: ShiftsViewState = .loaded
-    var dailyShifts = [DailyShiftsModel]()
+    var dailyShifts: [DailyShiftsModel] = [
+        .init(
+            date: Date.now,
+            shifts: [
+                ShiftModelPresentationMock.mocked,
+                ShiftModelPresentationMock.mocked,
+                ShiftModelPresentationMock.mocked,
+                ShiftModelPresentationMock.mocked,
+                ShiftModelPresentationMock.mocked,
+                ShiftModelPresentationMock.mocked
+            ]
+        )
+    ]
     var selectedShift: ShiftModel?
     
     func onAppear() async {}
