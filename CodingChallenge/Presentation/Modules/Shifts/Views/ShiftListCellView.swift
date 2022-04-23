@@ -81,7 +81,7 @@ struct TransactionCellView_Previews: PreviewProvider {
             )) ?? Date.now,
             premiumRate: true,
             covid: true,
-            shiftKind: "Day Shift",
+            shiftKind: .day,
             withinDistance: 2.0,
             facilityType: ShiftFacilityTypeResponseModel(
                 id: 0,

@@ -10,15 +10,18 @@ import Foundation
 protocol ShiftsViewModelProtocol: ObservableObject {
     var state: ShiftsViewState { get }
     var shifts: [ShiftResponseModel] { get }
+    var selectedShift: ShiftResponseModel? { get set }
     
     func onAppear() async
     func onScrollDown()
     func onPullToRefresh() async
+    func onShiftSelected(_ shift: ShiftResponseModel)
 }
 
 final class ShiftsViewModel {
     @Published private(set) var shifts: [ShiftResponseModel] = []
     @Published private(set) var state: ShiftsViewState = .loaded
+    @Published var selectedShift: ShiftResponseModel?
     
     private let shiftRepository: ShiftRepositoryProtocol
     
@@ -71,5 +74,9 @@ extension ShiftsViewModel: ShiftsViewModelProtocol {
         state = .refreshing
         
         await fetchShifts()
+    }
+    
+    func onShiftSelected(_ shift: ShiftResponseModel) {
+        selectedShift = shift
     }
 }

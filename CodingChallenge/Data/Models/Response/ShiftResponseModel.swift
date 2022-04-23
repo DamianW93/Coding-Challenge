@@ -13,7 +13,7 @@ struct ShiftResponseModel: Decodable, Identifiable, Equatable {
     let normalizedEndDateTime: Date
     let premiumRate: Bool
     let covid: Bool
-    let shiftKind: String
+    let shiftKind: ShiftType
     let withinDistance: Double?
     let facilityType: ShiftFacilityTypeResponseModel
     let skill: ShiftSkillResponseModel

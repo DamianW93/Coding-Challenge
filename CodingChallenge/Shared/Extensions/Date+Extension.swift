@@ -16,7 +16,8 @@ extension Date {
         case yearMonthDay = "YYYY-MM-dd"
         case ISO = "yyyy-MM-dd'T'HH:mm:ssZ"
         case normalizedISO = "yyyy-MM-dd HH:mm:ss"
-        case time = "HH:mma"
+        case time = "hh:mma"
+        case descriptiveDate = "EEEE YYYY-MM-dd"
     }
 
     func format(_ style: Format) -> String {

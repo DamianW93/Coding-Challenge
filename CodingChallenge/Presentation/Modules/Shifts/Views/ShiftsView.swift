@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ShiftsView<ViewModel: ShiftsViewModelProtocol>: View {
     @ObservedObject private(set) var viewModel: ViewModel
+    let shiftModuleFactory: ShiftModuleFactoryProtocol
     
     var body: some View {
         NavigationView {
@@ -18,6 +19,9 @@ struct ShiftsView<ViewModel: ShiftsViewModelProtocol>: View {
                     Task { await viewModel.onAppear() }
                 }
         }
+        .sheet(item: $viewModel.selectedShift) { shift in
+            shiftModuleFactory.buildShiftDetails(shift: shift)
+        }
     }
     
     private func contentView() -> some View {
@@ -25,6 +29,9 @@ struct ShiftsView<ViewModel: ShiftsViewModelProtocol>: View {
             ForEach(viewModel.shifts) { shift in
                 ShiftListCellView(shiftModel: shift)
                     .listRowSeparator(.hidden)
+                    .onTapGesture {
+                        viewModel.onShiftSelected(shift)
+                    }
             }
             if viewModel.state.showPaginingIndicator {
                 LoadingView()
@@ -48,6 +55,9 @@ struct ShiftsView<ViewModel: ShiftsViewModelProtocol>: View {
 
 struct ShiftsView_Previews: PreviewProvider {
     static var previews: some View {
-        ShiftsView(viewModel: ShiftsViewModelPreviewMock())
+        ShiftsView(
+            viewModel: ShiftsViewModelPreviewMock(),
+            shiftModuleFactory: SHiftModuleFactoryMock()
+        )
     }
 }

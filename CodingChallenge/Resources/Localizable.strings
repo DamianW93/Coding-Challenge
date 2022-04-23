@@ -15,3 +15,9 @@
 "error.noInternet" = "Internet not available. Please connect and retry.";
 "error.serverProblem" = "Oops! Seems like there was a problem with the server.\nError code: %d";
 "error.unknown" = "Oops! Something went wrong.";
+
+"shiftDetails.premiumRate" = "Premium Rate";
+"shiftDetails.covidVaccinationNeeded" = "Covid Vaccination Needed";
+"shiftDetails.facilityType" = "Facility Type";
+"shiftDetails.skill" = "Skill";
+"shiftDetails.specialty" = "Specialty";
