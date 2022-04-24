@@ -26,4 +26,15 @@ To start working on the challenge, clone this repo onto your development machine
 * Use of design patterns
 * Familiarity with mobile frameworks
 * Testability
-* Submit what you feel represents your best work
+* Submit what you feel represents your best work  
+
+&nbsp;
+# Installation
+
+1. Clone repository
+2. Open terminal in project directory and run:
+```
+pod install
+```
+
+3. Done! ✅
